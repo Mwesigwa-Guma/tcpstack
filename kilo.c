@@ -75,8 +75,7 @@ void disableRawMode(){
     }
 }
 
-
-void enableRawMode(){
+void e(){
     if(tcgetattr(STDIN_FILENO, &E.orig_termios) == -1){
         die("tcsetattr");
     }
@@ -94,8 +93,6 @@ void enableRawMode(){
         die("tcsetattr");
     }
 }
-
-
 
 /*** output ***/
 
