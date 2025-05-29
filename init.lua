@@ -464,25 +464,36 @@ require("lazy").setup({
 			end, { desc = "[S]earch [N]eovim files" })
 		end,
 	},
-    
-    -- noice plugin
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
-        dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-        }
-    },
 
-    ---@type LazySpec
+	-- noice plugin
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
+
+	-- vimux
+	{
+		"preservim/vimux",
+		config = function()
+			-- Example configuration for vimux
+			vim.g.VimuxHeight = "20" -- Set the height of the Vimux pane
+			vim.g.VimuxOrientation = "h" -- Horizontal split for the Vimux pane
+			vim.g.VimuxCloseOnExit = 1 -- Automatically close the Vimux pane on process exit
+		end,
+	},
+
+	---@type LazySpec
 	{
 		"mikavilpas/yazi.nvim",
 		event = "VeryLazy",
@@ -910,7 +921,7 @@ require("lazy").setup({
 				-- <c-k>: Toggle signature help
 				--
 				-- See :h blink-cmp-config-keymap for defining your own keymap
-				preset = "default",
+				preset = "super-tab",
 
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
