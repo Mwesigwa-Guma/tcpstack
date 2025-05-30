@@ -51,6 +51,7 @@ struct editorConfig{
     struct termios orig_termios;
 };
 
+
 struct editorConfig E;
 
 /*** append buffer ***/
